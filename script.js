@@ -70,8 +70,8 @@ const renderPasswords = (passwords) => {
     resultArea.innerHTML = `
         ${passwords.map(password => `
             <p class="password-elem accent">
-                <span class="pass-text>${password}</span>
-                <i class="fa-solid fa-clone copy data-password="${password}"></i>
+                <span class="pass-text">${password}</span>
+                <i class="fa-solid fa-clone copy" data-password="${password}"></i>
             </p>`).join('')}
     `
 }
