@@ -70,8 +70,8 @@ const renderPasswords = (passwords) => {
     resultArea.innerHTML = `
         ${passwords.map(password => `
             <p class="password-elem accent">
-                <span class="pass-text">${password}</span>
-                <i class="fa-solid fa-clone copy"></i>
+                <span class="pass-text>${password}</span>
+                <i class="fa-solid fa-clone copy data-password="${password}"></i>
             </p>`).join('')}
     `
 }
@@ -100,7 +100,8 @@ document.body.addEventListener('click', (e) => {
     }
 
     if(e.target.classList.contains('copy')) {
-        navigator.clipboard.writeText(document.querySelector('.pass-text').textContent);
+        const passwordText = e.target.getAttribute('data-password');
+        navigator.clipboard.writeText(passwordText);
 
         Toastify({
         text: "Copied to Clipboard",
